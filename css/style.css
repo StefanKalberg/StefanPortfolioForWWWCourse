@@ -1,6 +1,6 @@
 table
 {
-	color: #000000;
+	color: #E66B1C;
 	font-size:12px;
 	text-align: left;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
@@ -9,7 +9,7 @@ table
 #games, #games td
 {
 	padding:5px;
-	border: 1px solid black;
+	border: 1px solid red;
 	border-collapse: collapse;
 }
 
