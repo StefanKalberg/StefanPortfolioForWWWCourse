@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title>WWW-ja-Internet</title>
+	<link href="CSS/style.css" rel="stylesheet" type="text/css">
+	<script type="application/javascript" language="javascript">
+	
+		function validateForm()
+		{
+			if(document.forms["myForm"]["uname"].value==null || document.forms["myForm"]["uname"].value=="")
+			{
+				alert("Name must be filled out");
+				return false;
+			}
+			
+			if(document.forms["myForm"]["SAname"].value==null || document.forms["myForm"]["SAname"].value=="")
+			{
+				alert("Spirit animal species name must be filled out");
+				return false;
+			}
+			return true;
+		}
+		
+		var x = document.getElementById("demo");
+		function getLocation() 
+		{
+			if (navigator.geolocation) 
+			{
+				navigator.geolocation.getCurrentPosition(showPosition, showError);
+			} 
+			else 
+			{ 
+				x.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+	
+		function showError(error) 
+		{
+			switch(error.code) {
+				case error.PERMISSION_DENIED:
+					x.innerHTML = "User denied the request for Geolocation."
+					break;
+				case error.POSITION_UNAVAILABLE:
+					x.innerHTML = "Location information is unavailable."
+					break;
+				case error.TIMEOUT:
+					x.innerHTML = "The request to get user location timed out."
+					break;
+				case error.UNKNOWN_ERROR:
+					x.innerHTML = "An unknown error occurred."
+					break;
+			}
+		}
+
+		function showPosition(position) 
+		{
+			alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
+		}
+		
+		function allowDrop(ev) 
+		{
+			ev.preventDefault();
+		}
+
+		function drag(ev) 
+		{
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) 
+		{
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+	</script>
+	<meta name="description" content="Webpage for KAMK WWW ja Internet course. My sort of portfolio">
+	<meta name="keywords" content="WWW, Internet, KAMK, Portfolio, Video, Games">
+  </head>
+
+  <body bgcolor="#208790">
+	<div id="banner"></div>
+	<div class="sticky">
+		<ul id="topnav">
+				<li><a href="#">Home</a></li>
+				<li><a href="#table">Table</a></li>
+				<li><a href="#form">Form</a></li>
+				<li><a href="#video">Video</a></li>
+				<li><a href="#location">Location</a></li>
+				<li><a href="#dnd">Drag & Drop</a></li>
+		</ul>
+	</div>
+	
+	<div id="content" style="margin-bottom:-40px">						
+		<div id="mainbox">
+			<div>
+				<h2 style="font-size:24px">WELCOME TO MY QUOTE PORTFOLIO PAGE UNQUOTE!</h2>		
+				<p>Here you'll find a list of games I've worked with on some capacity and some other things the course told me to do.
+				<br><br>This webpage was desperately made for KAMK's "WWW ja Internet" Course.</p>
+				
+			</div>
+			
+			<div>
+				<a class="anchor" id="table"></a>
+				<h2>Games I've had a hand in.</h2>
+				<p>Here's the published games I've worked with in a chronological order.
+				<table id="games">
+					<tr>
+						<td class="games">Name:</td>
+						<td>Genre:</td>
+						<td>Released:</td>
+                        <td>Store/Platform:</td>
+                        <td>Role in development</td>
+                        
+                        
+					</tr>
+					<tr>
+						<td>Jungle Raiders</td>
+						<td>Couch Co-op, VS game</td>
+						<td>2017</td>
+                        <td>Ich.io</td>
+                        <td>Designer, Producer</td>
+					</tr>
+					<tr>
+						<td>Demon Peak</td>
+						<td>Metroidvania</td>
+						<td>2017</td>
+                        <td>Steam</td>
+                        <td>Publisher</td>
+					</tr>
+					<tr>
+						<td>Pueo: Adventures</td>
+						<td>Platformer</td>
+						<td>2017</td>
+                        <td>Google Play Store</td>
+                        <td>Publisher</td>
+					</tr>
+					<tr>
+						<td>Memoreef</td>
+						<td>Memorygame</td>
+						<td>2017</td>
+                        <td>Google Play Store</td>
+                        <td>Publisher</td>
+					</tr>
+                    <tr>
+						<td>FinnSummerVR</td>
+						<td>VR-simulation</td>
+						<td>2018</td>
+                        <td>Steam</td>
+                        <td>Publisher, Voiceactor</td>
+					</tr>
+                    <tr>
+						<td>Hope Adrift</td>
+						<td>Narrative title</td>
+						<td>2019</td>
+                        <td>Itch.io</td>
+                        <td>Voiceactor</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div>
+				<a class="anchor" id="form"></a>
+				<h2>Spirit Animal Survey</h2>
+				<p>What's your spirit animal? You can use this to enter information about your spirit animal and why you feel a connection to that species.</p>
+				<form name="myForm" onsubmit="return validateForm()">			
+					<table>
+						<tr>
+							<td>Spirit Animal*:</td>
+							<td>User Name*:</td>							
+						</tr>
+						<tr>
+							<td><input type="text" name="gname"></td>
+							<td><input type="text" name="uname"></td>					
+						</tr>
+						<tr>
+							
+							<td>
+								Gender:<br>
+								<input type="radio" name="gender" value="male" checked="checked">Male<br>
+								<input type="radio" name="gender" value="female">Female<br>
+								<input type="radio" name="gender" value="other">Other<br>
+								<input type="radio" name="gender" value="other">No answer<br>
+							</td>
+						</tr>
+					</table><br>			
+					
+					Comment:<br><textarea rows="10" cols="80"></textarea><br>
+					<input type="submit" value="Submit">
+					<input type="reset"><br><br>
+					<sub>Boxes marked with * must be filled out. <br> This information is not stored or sent anywhere! Pinkie promise!</sub>
+				</form>
+			</div>
+			
+			<div>
+				<a class="anchor" id="video"></a>
+				<h2>Video:</h2>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			
+			<div>
+				<a class="anchor" id="location"></a>
+				<h2>Location</h2>
+				<p>Get your latitude and longitude by clicking the button.</p>
+				<button onclick="getLocation()">Click me!</button>			
+				<p id="demo"></p>
+			</div>		
+			
+			<div>
+				<a class="anchor" id="dnd"></a>				
+				<h2>Drag & Drop:</h2>
+				<p>Drag this cute kitty and then drop him/her from one box to the other and back again because he/she likes to be held and cuddled. 
+				<table>
+					<tr>
+						<td>
+							<div id="canvas" ondrop="drop(event)" ondragover="allowDrop(event)">		
+							<img src="Images/Cat.jpg" alt="DragMe" draggable="true" ondragstart="drag(event)" id="drag1" width="256" height="256"></div>
+						</td>
+						<td>
+							<div id="canvas2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>	
+		
+		<div id="footer">
+		<p>Page by Stefan Kalberg </p>
+		</div>
+		
+	</div>
+  </body>
+</html>
