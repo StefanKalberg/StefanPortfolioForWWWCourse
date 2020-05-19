@@ -1,4 +1,2 @@
 # StefanPortfolioForWWWCourse
----
-permalink: /index.html
----
+
